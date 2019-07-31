@@ -4,10 +4,11 @@
 #
 Name     : mvn-jackson-modules-base
 Version  : 2.7.9
-Release  : 1
+Release  : 2
 URL      : https://github.com/FasterXML/jackson-modules-base/archive/jackson-modules-base-2.7.9.tar.gz
 Source0  : https://github.com/FasterXML/jackson-modules-base/archive/jackson-modules-base-2.7.9.tar.gz
 Source1  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-modules-base/2.7.9/jackson-modules-base-2.7.9.pom
+Source2  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-modules-base/2.9.5/jackson-modules-base-2.9.5.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -37,6 +38,9 @@ data components for the mvn-jackson-modules-base package.
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.7.9
 cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.7.9/jackson-modules-base-2.7.9.pom
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.5
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.5/jackson-modules-base-2.9.5.pom
+
 
 %files
 %defattr(-,root,root,-)
@@ -44,3 +48,4 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/m
 %files data
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.7.9/jackson-modules-base-2.7.9.pom
+/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.5/jackson-modules-base-2.9.5.pom
