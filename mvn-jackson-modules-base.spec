@@ -4,7 +4,7 @@
 #
 Name     : mvn-jackson-modules-base
 Version  : 2.7.9
-Release  : 2
+Release  : 3
 URL      : https://github.com/FasterXML/jackson-modules-base/archive/jackson-modules-base-2.7.9.tar.gz
 Source0  : https://github.com/FasterXML/jackson-modules-base/archive/jackson-modules-base-2.7.9.tar.gz
 Source1  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-modules-base/2.7.9/jackson-modules-base-2.7.9.pom
