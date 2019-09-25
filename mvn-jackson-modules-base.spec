@@ -4,11 +4,12 @@
 #
 Name     : mvn-jackson-modules-base
 Version  : 2.7.9
-Release  : 5
+Release  : 6
 URL      : https://github.com/FasterXML/jackson-modules-base/archive/jackson-modules-base-2.7.9.tar.gz
 Source0  : https://github.com/FasterXML/jackson-modules-base/archive/jackson-modules-base-2.7.9.tar.gz
 Source1  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-modules-base/2.7.9/jackson-modules-base-2.7.9.pom
 Source2  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-modules-base/2.9.5/jackson-modules-base-2.9.5.pom
+Source3  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-modules-base/2.9.9/jackson-modules-base-2.9.9.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -57,6 +58,9 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/m
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.5
 cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.5/jackson-modules-base-2.9.5.pom
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.9
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.9/jackson-modules-base-2.9.9.pom
+
 
 %files
 %defattr(-,root,root,-)
@@ -65,6 +69,7 @@ cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/m
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.7.9/jackson-modules-base-2.7.9.pom
 /usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.5/jackson-modules-base-2.9.5.pom
+/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.9/jackson-modules-base-2.9.9.pom
 
 %files license
 %defattr(0644,root,root,0755)
