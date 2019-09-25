@@ -4,15 +4,19 @@
 #
 Name     : mvn-jackson-modules-base
 Version  : 2.7.9
-Release  : 3
+Release  : 4
 URL      : https://github.com/FasterXML/jackson-modules-base/archive/jackson-modules-base-2.7.9.tar.gz
 Source0  : https://github.com/FasterXML/jackson-modules-base/archive/jackson-modules-base-2.7.9.tar.gz
-Source1  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-modules-base/2.7.9/jackson-modules-base-2.7.9.pom
-Source2  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-modules-base/2.9.5/jackson-modules-base-2.9.5.pom
+Source1  : https://repo1.maven.org/maven2/com/fasterxml/jackson/jackson-base/2.9.9/jackson-base-2.9.9.pom
+Source2  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-modules-base/2.7.9/jackson-modules-base-2.7.9.pom
+Source3  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-modules-base/2.9.5/jackson-modules-base-2.9.5.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-jackson-modules-base-data = %{version}-%{release}
+Requires: mvn-jackson-modules-base-license = %{version}-%{release}
+BuildRequires : apache-maven
+BuildRequires : buildreq-mvn
 
 %description
 ## Overview
@@ -30,16 +34,32 @@ Group: Data
 data components for the mvn-jackson-modules-base package.
 
 
+%package license
+Summary: license components for the mvn-jackson-modules-base package.
+Group: Default
+
+%description license
+license components for the mvn-jackson-modules-base package.
+
+
 %prep
+%setup -q -n jackson-modules-base-jackson-modules-base-2.7.9
 
 %build
 
 %install
+mkdir -p %{buildroot}/usr/share/package-licenses/mvn-jackson-modules-base
+cp mrbean/src/main/resources/META-INF/LICENSE %{buildroot}/usr/share/package-licenses/mvn-jackson-modules-base/mrbean_src_main_resources_META-INF_LICENSE
+cp osgi/src/main/resources/META-INF/LICENSE %{buildroot}/usr/share/package-licenses/mvn-jackson-modules-base/osgi_src_main_resources_META-INF_LICENSE
+cp paranamer/src/main/resources/META-INF/LICENSE %{buildroot}/usr/share/package-licenses/mvn-jackson-modules-base/paranamer_src_main_resources_META-INF_LICENSE
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jackson-base/2.9.9
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jackson-base/2.9.9/jackson-base-2.9.9.pom
+
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.7.9
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.7.9/jackson-modules-base-2.7.9.pom
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.7.9/jackson-modules-base-2.7.9.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.5
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.5/jackson-modules-base-2.9.5.pom
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.5/jackson-modules-base-2.9.5.pom
 
 
 %files
@@ -47,5 +67,12 @@ cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/m
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/com/fasterxml/jackson/jackson-base/2.9.9/jackson-base-2.9.9.pom
 /usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.7.9/jackson-modules-base-2.7.9.pom
 /usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-modules-base/2.9.5/jackson-modules-base-2.9.5.pom
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/mvn-jackson-modules-base/mrbean_src_main_resources_META-INF_LICENSE
+/usr/share/package-licenses/mvn-jackson-modules-base/osgi_src_main_resources_META-INF_LICENSE
+/usr/share/package-licenses/mvn-jackson-modules-base/paranamer_src_main_resources_META-INF_LICENSE
